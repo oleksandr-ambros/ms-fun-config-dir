@@ -24,3 +24,10 @@ spring:
 logging:
   level:
     com.ms.base.ss: DEBUG
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://host.docker.internal:8761/eureka
+    registerWithEureka: true
+    fetchRegistry: true
