@@ -1,0 +1,23 @@
+server:
+  port: 8092
+
+spring:
+  rabbitmq:
+    host: ${RESOURCE_BROKER_HOST}
+
+rabbitmq:
+  queue:
+    name: resource-queue
+  routing:
+    key: rsk1
+
+logging:
+  level:
+    com.ms.base.rp: DEBUG
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://host.docker.internal:8761/eureka
+    registerWithEureka: true
+    fetchRegistry: true
