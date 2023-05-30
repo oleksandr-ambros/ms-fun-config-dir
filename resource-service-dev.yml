@@ -1,0 +1,57 @@
+server:
+  port: 8090
+
+#PostgreSQL DS configs
+spring:
+  datasource:
+    url: ${RESOURCE_POSTGRES_JDBC_URL}
+    driver-class-name: org.postgresql.Driver
+    username: ${RESOURCE_POSTGRES_USER}
+    password: ${RESOURCE_POSTGRES_PASSWORD}
+
+  sql:
+    init:
+      mode:
+        always
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+
+  rabbitmq:
+    host: ${RESOURCE_BROKER_HOST}
+
+rabbitmq:
+  queue:
+    name: resource-queue
+  exchange:
+    name: resource-queue-exchange
+  routing:
+    key: rsk1
+
+aws:
+  region: us-east-1
+  s3:
+    url: ${AWS_S3_URL}
+    bucket-name: audio-resource-bucket
+    access-key: ${AWS_S3_ACCESS_KEY}
+    secret-key: ${AWS_S3_SECRET_KEY}
+
+logging:
+  level:
+    com.ms.base.rs: DEBUG
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://host.docker.internal:8761/eureka
+    registerWithEureka: true
+    fetchRegistry: true
