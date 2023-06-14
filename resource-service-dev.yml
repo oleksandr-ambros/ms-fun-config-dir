@@ -79,16 +79,3 @@ management:
   endpoint:
     health:
       show-details: always
-
-data:
-  stubbedStorages:
-    -
-      id: 1
-      storageType: staging
-      bucket: audio-resource-staging
-      path: files/staging
-    -
-      id: 2
-      storageType: permanent
-      bucket: audio-resource-permanent
-      path: files/permanent
