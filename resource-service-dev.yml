@@ -55,27 +55,3 @@ eureka:
       defaultZone: http://${EUREKA_SERVICE_HOST:localhost}:${EUREKA_SERVICE_PORT:8761}/eureka
     registerWithEureka: true
     fetchRegistry: true
-
-resilience4j.circuitbreaker:
-  instances:
-    storageCircuitBreaker:
-      registerHealthIndicator: true
-      slidingWindowSize: 10
-      slidingWindowType: COUNT_BASED
-      permittedNumberOfCallsInHalfOpenState: 3
-      automaticTransitionFromOpenToHalfOpenEnabled: true
-      minimumNumberOfCalls: 5
-      waitDurationInOpenState: 5s
-      failureRateThreshold: 50
-
-management:
-  health:
-    circuitbreakers:
-      enabled: true
-  endpoints:
-    web:
-      exposure:
-        include: health
-  endpoint:
-    health:
-      show-details: always
