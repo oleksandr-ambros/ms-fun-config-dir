@@ -31,3 +31,16 @@ eureka:
       defaultZone: http://${EUREKA_SERVICE_HOST:localhost}:${EUREKA_SERVICE_PORT:8761}/eureka
     registerWithEureka: true
     fetchRegistry: true
+
+management:
+  endpoint:
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  metrics:
+    export:
+      prometheus:
+        enabled: true
