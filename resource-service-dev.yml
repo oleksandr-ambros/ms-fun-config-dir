@@ -67,15 +67,3 @@ resilience4j.circuitbreaker:
       minimumNumberOfCalls: 5
       waitDurationInOpenState: 5s
       failureRateThreshold: 50
-
-management:
-  health:
-    circuitbreakers:
-      enabled: true
-  endpoints:
-    web:
-      exposure:
-        include: health
-  endpoint:
-    health:
-      show-details: always
